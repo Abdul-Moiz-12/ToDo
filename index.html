@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>TODO-App</title>
+</head>
+<body>
+    
+    <h1>TODO App by <strong style="font-family: '', monospace;">Abdul Moiz</strong></h1>
+    <main>
+        <div class="input-area">
+            <input type="text" class="input" placeholder="Enter your todo">
+            <button id="createBtn"><i class="fa-solid fa-plus"></i></button>
+            <button id="readBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="list-area">
+            <ul class="list">
+                
+                <li class="item">
+                    <!-- checkbox --> <input type="checkbox" class="checkbox">
+                    <!-- text --> <span>
+                        <span class="serial-number">1.</span>
+                        <span class="content">This is default Todo</span>
+                    </span>
+                    <button class="updateBtn"><i class="fa-solid fa-pencil"></i></button>
+                    <button class="deleteBtn"><i class="fa-solid fa-x"></i></button>
+                </li>
+
+            </ul>
+        </div>
+    </main>
+
+
+
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
