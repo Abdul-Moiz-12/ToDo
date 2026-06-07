@@ -117,6 +117,7 @@ document.addEventListener("click", function (event) {
 
             targetedNode.style.display = "flex";
             inputForEdit.remove();
+            isActive = true;
         }
 
         inputForEdit.addEventListener("blur", saveEdit);
