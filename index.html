@@ -10,10 +10,18 @@
 <body>
     
     <h1>TODO App by <strong style="font-family: monospace;">Abdul Moiz</strong></h1>
+
     <!-- Authentication -->
+    <div class="auth-section">
+        <div class="container">
+            <input type="email" placeholder="Enter your Email" id="email">
+            <input type="password" placeholder="Enter your password" id="password">
+            <button>login</button>
+            <p>Already have an account? <a href="" onclick="alert('login kar chupchap')">sign in</a></p>
+        </div>
+    </div>
 
 
-    
     <!-- Todo App -->
     <main>
         <form class="input-area" id="todoForm" onsubmit="event.preventDefault();">

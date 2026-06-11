@@ -197,3 +197,25 @@ button:hover {
 .deleteBtn:hover {
     background-color: #ffeef0;
 }
+
+/* Authentication Section Styling: */
+.auth-section{
+    border: 3px solid var(--color2);
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem;
+    width: 48%;
+    height: auto;
+}
+.auth-section .container{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.auth-section .container input{
+    width: 100%;
+    margin: 3px;
+    padding: 3px;
+}
