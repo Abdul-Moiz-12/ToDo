@@ -1,19 +1,21 @@
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
-:root{
-    /* color palette */
+
+:root {
+    /* Color palette */
     --color1: rgb(212, 224, 255);
     --color2: rgb(58, 83, 153);
     --color3: rgb(0, 0, 0);
+    --color-bg: #f8f9fa;
 
-    /* effects */
-    --shadowColor: rgba(0, 0, 0, 0.275);
+    /* Effects */
+    --shadowColor: rgba(0, 0, 0, 0.15);
 
     /* Typography */
-    --font1: 'inter', sans-serif;
+    --font1: 'Inter', sans-serif;
 }
 
 body {
@@ -21,124 +23,177 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    /* border: 1px solid red;    */
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    font-family: var(--font1);
+    padding: 20px;
+}
 
-    font-family: 'Inter', sans-serif;
+h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
 }
-h1{
-    /* border: 1px solid red; */
-    margin: 1rem;
-    padding: 1rem;
-}
-strong{
+
+strong {
     color: var(--color2);
     background-color: var(--color1);
-    border-radius: 12px;
-    padding: 12px;
-    margin: 2px;
-    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-family: monospace;
 }
 
 main {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-
-    width: 80vw;
-    min-height: 30vh;
-    height: auto;
+    width: 100%;
+    max-width: 600px; /* Desktop par bohot phaila hua nahi dikhega */
+    min-height: 40vh;
+    background: #ffffff;
     border: 3px solid var(--color2);
-    padding: 2rem;
-    border-radius: 40px;
+    padding: 1.5rem;
+    border-radius: 24px;
     box-shadow: 0 10px 30px var(--shadowColor);
-
 }
-main .input-area{
+
+/* Input Area (Form) */
+main .input-area {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-
-    /* border: 1px solid green; */
-    padding: 1rem;
-    width: 70vw;
-}
-main .list-area{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 70vw;
-    /* border: 1px solid green; */
-    padding: 1rem;
-
-    overflow-y: scroll;
+    gap: 10px; /* Elements ke beech barabar space */
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
 }
 
-main .list-area .list{
-    color: grey;
-}
-
-main .list-area .list .item{ /* if li is visible*/
-    width: 60vw;
-    /* border: 1px solid black; */
-
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
-    width: 66vw;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 6px 12px var(--shadowColor);
-    color: black;
-}
-main .list-area .list .notVisible{ /* if no visible*/
-    display: none;
-}
-
-main .list-area .list li span{
-    width: 50vw;
-    height: 5vh;
-    /* border: 1px solid red; */
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-main .list-area .list li span .serial-number{
-    width: 2vw;
-}
-
-.input-area input{
-    width: 84%;
-    font-size: 25px;
-    padding: 1rem;
+.input-area input {
+    flex: 1; /* Bacha hua saara space input le lega */
+    font-size: 18px;
+    padding: 0.8rem;
     outline: none;
-    border: none;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    transition: border-color 0.3s;
 }
 
-.edit{
-    padding: 1rem;
+.input-area input:focus {
+    border-color: var(--color2);
 }
-/* buttons and Icons */
-button{
+
+/* List Area */
+main .list-area {
+    width: 100%;
+    margin-top: 1rem;
+    max-height: 400px; /* Is se zyada todos hone par scroll chalega */
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+main .list-area .list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Har todo ke beech gap */
+}
+
+main .list-area .list .item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: 1rem;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px var(--shadowColor);
+    transition: transform 0.2s;
+}
+
+main .list-area .list .item:hover {
+    transform: translateY(-2px);
+}
+
+/* Checkbox Styling */
+.checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Todo Text Wrapper */
+main .list-area .list li .todo-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    color: var(--color3);
+    word-break: break-word; /* Lamba text wrapper se baahir nahi niklega */
+}
+
+.serial-number {
+    font-weight: bold;
+    color: var(--color2);
+}
+
+/* Completed Todo Style */
+.item.completed .content {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.item.completed {
+    background-color: #f9f9f9;
+    opacity: 0.8;
+}
+
+/* Hide element if not visible */
+.notVisible {
+    display: none !important;
+}
+
+/* Inline Edit Input */
+.inputForEdit {
+    flex: 1;
+    border: none;
+    border-bottom: 2px solid var(--color2);
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    font-family: var(--font1);
+}
+
+/* Buttons and Icons */
+button {
+    padding: 0.8rem 1rem;
     background-color: #f5f8ff;
     border: none;
     border-radius: 12px;
-    margin: 1px;
-    transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    color: var(--color2);
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
-button:hover{
+
+button:hover {
     background-color: var(--color1);
-    transform: translateY(-1px);
+    color: #000;
 }
-.inputForEdit{
-    border: none;
-    border-bottom: 3px solid rgb(0, 0, 0);
-    outline: none;
-    padding: 1em;
-    font-size: 1rem;
+
+#createBtn {
+    background-color: var(--color2);
+    color: #fff;
+}
+
+#createBtn:hover {
+    background-color: #2a3d75;
+}
+
+.deleteBtn {
+    color: #dc3545;
+}
+
+.deleteBtn:hover {
+    background-color: #ffeef0;
 }

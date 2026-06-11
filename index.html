@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>TODO-App</title>
 </head>
 <body>
     
-    <h1>TODO App by <strong style="font-family: '', monospace;">Abdul Moiz</strong></h1>
+    <h1>TODO App by <strong style="font-family: monospace;">Abdul Moiz</strong></h1>
+    
     <main>
-        <div class="input-area">
-            <input type="text" class="input" placeholder="Enter your todo">
-            <button id="createBtn"><i class="fa-solid fa-plus"></i></button>
-            <button id="readBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
+        <form class="input-area" id="todoForm" onsubmit="event.preventDefault();">
+            <input type="text" class="input" id="todoInput" placeholder="Enter your todo" required>
+            <button type="submit" id="createBtn" title="Add Todo">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <button type="button" id="readBtn" title="Search Todo">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
 
         <div class="list-area">
-            <ul class="list">
+            <ul class="list" id="todoList">
                 
                 <li class="item">
-                    <!-- checkbox --> <input type="checkbox" class="checkbox">
-                    <!-- text --> <span>
+                    <input type="checkbox" class="checkbox">
+                    
+                    <span class="todo-text">
                         <span class="serial-number">1.</span>
                         <span class="content">This is default Todo</span>
                     </span>
-                    <button class="updateBtn"><i class="fa-solid fa-pencil"></i></button>
-                    <button class="deleteBtn"><i class="fa-solid fa-x"></i></button>
+                    
+                    <button type="button" class="updateBtn" title="Edit"><i class="fa-solid fa-pencil"></i></button>
+                    <button type="button" class="deleteBtn" title="Delete"><i class="fa-solid fa-x"></i></button>
                 </li>
 
             </ul>
         </div>
     </main>
 
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
